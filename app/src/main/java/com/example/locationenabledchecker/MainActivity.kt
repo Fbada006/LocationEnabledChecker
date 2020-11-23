@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.IntentSender
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.LocationRequest
@@ -51,11 +52,13 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CHECK_SETTINGS) {
             if (resultCode == RESULT_OK ){
+                // Do your stuff here
                 Log.d(
                     TAG,
                     "onActivityResult: -----------------Location permissions have been satisfied"
                 )
             } else {
+                Toast.makeText(this, "Please enable GPS to use this app", Toast.LENGTH_SHORT).show()
                 Log.d(
                     TAG,
                     "onActivityResult: -----------------Location services off"
